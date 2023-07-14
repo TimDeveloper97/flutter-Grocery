@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:grocery_app/provider/dark_theme_provider.dart';
-import 'package:grocery_app/screens/home_screen.dart';
+import 'package:grocery_app/screens/bottom_bar.dart';
 import 'package:provider/provider.dart';
 
 import 'consts/theme_data.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-      .then((value) => runApp(MyApp()));
+      .then((value) => runApp(const MyApp()));
 }
 
 class MyApp extends StatefulWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
+  bool isMaterial = true;
   DarkThemeProvider themeChangeProvder = DarkThemeProvider();
 
   void getCurrentAppTheme() async {
@@ -52,7 +53,7 @@ class _MyAppState extends State<MyApp> {
           title: 'Grocery',
           debugShowCheckedModeBanner: false,
           theme: Styles.themeData(dark, context),
-          home: const HomeScreen(),
+          home: const BottomBarSceen(),
         );
       }),
     );

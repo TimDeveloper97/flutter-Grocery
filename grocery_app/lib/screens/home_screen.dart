@@ -13,21 +13,16 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final themeState = Provider.of<DarkThemeProvider>(context);
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Grocery App'),
-      ),
-      body: Center(
-        child: SwitchListTile(
-          value: themeState.getDarkTheme,
-          onChanged: (value) {
-            themeState.setDarkTheme = value;
-          },
-          title: const Text('Theme'),
-          secondary: Icon(themeState.getDarkTheme
-              ? Icons.dark_mode_outlined
-              : Icons.light_mode_outlined),
-        ),
+    return Center(
+      child: SwitchListTile(
+        value: themeState.getDarkTheme,
+        onChanged: (value) {
+          themeState.setDarkTheme = value;
+        },
+        title: const Text('Theme'),
+        secondary: Icon(themeState.getDarkTheme
+            ? Icons.dark_mode_outlined
+            : Icons.light_mode_outlined),
       ),
     );
   }
