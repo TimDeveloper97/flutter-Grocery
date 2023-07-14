@@ -52,7 +52,15 @@ class _MyAppState extends State<MyApp> {
         return MaterialApp(
           title: 'Grocery',
           debugShowCheckedModeBanner: false,
-          theme: Styles.themeData(dark, context),
+          // theme: Styles.themeData(dark, context),
+          theme: ThemeData(
+            brightness: Brightness.light,
+            useMaterial3: true,
+          ),
+          darkTheme: ThemeData(
+            brightness: Brightness.dark,
+          ),
+          themeMode: dark ? ThemeMode.dark : ThemeMode.light,
           home: const BottomBarSceen(),
         );
       }),
