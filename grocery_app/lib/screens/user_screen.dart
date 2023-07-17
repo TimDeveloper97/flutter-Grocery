@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:grocery_app/screens/profile_screen.dart';
 import 'package:grocery_app/widgets/action_switch_view.dart';
 import 'package:grocery_app/widgets/action_view.dart';
 import 'package:provider/provider.dart';
@@ -31,7 +32,12 @@ class UserScreen extends StatelessWidget {
           ),
         ),
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () async {
+            await showModalBottomSheet(
+              context: context,
+              builder: (context) => const ProfileScreen(),
+            );
+          },
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.green,
             shape: RoundedRectangleBorder(
@@ -57,8 +63,8 @@ class UserScreen extends StatelessWidget {
           GroupView(title: 'General Settings', children: [
             ActionView(
                 icon: IconlyLight.location,
-                title: 'Location',
-                description: 'Chosen your location',
+                title: 'History',
+                description: 'See all history payment',
                 onPress: () {},
                 color: Colors.blue),
             ActionView(

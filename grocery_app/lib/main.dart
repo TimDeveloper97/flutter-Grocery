@@ -4,7 +4,6 @@ import 'package:grocery_app/provider/dark_theme_provider.dart';
 import 'package:grocery_app/screens/bottom_bar.dart';
 import 'package:provider/provider.dart';
 
-import 'consts/theme_data.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -59,6 +58,7 @@ class _MyAppState extends State<MyApp> {
           ),
           darkTheme: ThemeData(
             brightness: Brightness.dark,
+            useMaterial3: true,
           ),
           themeMode: dark ? ThemeMode.dark : ThemeMode.light,
           home: const BottomBarSceen(),
