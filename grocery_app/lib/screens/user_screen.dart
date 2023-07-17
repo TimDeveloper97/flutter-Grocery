@@ -11,6 +11,30 @@ import '../widgets/group_view.dart';
 class UserScreen extends StatelessWidget {
   const UserScreen({super.key});
 
+  void _logoutView(BuildContext context) async {
+    var result = await showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text("Logout"),
+          content: const Text("Are you sure want to logout of the system?"),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget user = Row(
@@ -23,7 +47,7 @@ class UserScreen extends StatelessWidget {
           child: ListTile(
             title: Text('Dariene Robertson'),
             subtitle: Text(
-              'Edit your profile',
+              'darienerobertson@gmail.com',
               style: TextStyle(
                 color: Colors.grey,
                 fontSize: 12,
@@ -103,7 +127,7 @@ class UserScreen extends StatelessWidget {
                 icon: IconlyLight.logout,
                 title: 'Logout',
                 description: 'Logout of the system',
-                onPress: () {},
+                onPress: () => _logoutView(context),
                 color: Colors.purple),
           ]),
         ],

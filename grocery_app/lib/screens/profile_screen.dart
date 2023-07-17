@@ -80,12 +80,9 @@ class ProfileScreen extends StatelessWidget {
       decoration: const BoxDecoration(
         gradient: LinearGradient(
             colors: [
+              Colors.deepOrange,
               Colors.yellow,
               Colors.white,
-            ],
-            stops: [
-              0.0,
-              1.0
             ],
             begin: Alignment.topLeft,
             end: Alignment.topRight,
