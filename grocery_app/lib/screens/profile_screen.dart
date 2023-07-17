@@ -77,11 +77,11 @@ class ProfileScreen extends StatelessWidget {
     );
 
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
             colors: [
-              Colors.deepOrange,
-              Colors.yellow,
+              Theme.of(context).primaryColor,
+              Theme.of(context).primaryColorLight,
               Colors.white,
             ],
             begin: Alignment.topLeft,
