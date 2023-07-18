@@ -4,6 +4,7 @@ import 'package:grocery_app/widgets/category_item_view.dart';
 import 'package:provider/provider.dart';
 
 import '../consts/colors.data.dart';
+import '../consts/utils.dart';
 import '../provider/dark_theme_provider.dart';
 
 final List<Map<String, dynamic>> _categories = [
@@ -20,7 +21,7 @@ class CategoriesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeState = Provider.of<DarkThemeProvider>(context);
+    final themeState = Utils(context).getTheme;
 
     return Stack(
       fit: StackFit.loose,
@@ -41,8 +42,7 @@ class CategoriesScreen extends StatelessWidget {
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.25,
                 decoration: BoxDecoration(
-                    color:
-                        themeState.getDarkTheme ? Colors.black : Colors.white),
+                    color: themeState ? Colors.black : Colors.white),
               ),
             ),
             Expanded(
@@ -50,8 +50,7 @@ class CategoriesScreen extends StatelessWidget {
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.25,
                 decoration: BoxDecoration(
-                    color:
-                        themeState.getDarkTheme ? Colors.black : Colors.white),
+                    color: themeState ? Colors.black : Colors.white),
               ),
             ),
           ],
@@ -74,7 +73,7 @@ class CategoriesScreen extends StatelessWidget {
                         style: GoogleFonts.montserrat(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 30,
+                          fontSize: 40,
                         ),
                       ),
                     ),
@@ -84,11 +83,11 @@ class CategoriesScreen extends StatelessWidget {
                         style: GoogleFonts.montserrat(
                           color: Theme.of(context).primaryColor,
                           fontWeight: FontWeight.bold,
-                          fontSize: 30,
+                          fontSize: 40,
                         ),
                       ),
                     ),
-                    Expanded(
+                    const Expanded(
                       flex: 1,
                       child: SizedBox(),
                     ),
