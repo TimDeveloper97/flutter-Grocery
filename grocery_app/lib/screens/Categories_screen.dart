@@ -29,8 +29,7 @@ class CategoriesScreen extends StatelessWidget {
               flex: 1,
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.25,
-                decoration:
-                    BoxDecoration(color: Theme.of(context).primaryColor),
+                decoration: BoxDecoration(color: Colors.purple[600]),
               ),
             ),
             Expanded(
@@ -38,7 +37,7 @@ class CategoriesScreen extends StatelessWidget {
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.25,
                 decoration: BoxDecoration(
-                    color: themeState ? Colors.black : Colors.white),
+                    color: themeState ? Colors.black12 : Colors.white),
               ),
             ),
             Expanded(
@@ -46,7 +45,7 @@ class CategoriesScreen extends StatelessWidget {
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.25,
                 decoration: BoxDecoration(
-                    color: themeState ? Colors.black : Colors.white),
+                    color: themeState ? Colors.black12 : Colors.white),
               ),
             ),
           ],
@@ -77,7 +76,7 @@ class CategoriesScreen extends StatelessWidget {
                       child: Text(
                         'gories',
                         style: GoogleFonts.montserrat(
-                          color: Theme.of(context).primaryColor,
+                          color: Colors.purple[600],
                           fontWeight: FontWeight.bold,
                           fontSize: 40,
                         ),

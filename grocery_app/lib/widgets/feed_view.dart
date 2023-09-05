@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grocery_app/consts/utils.dart';
+import 'package:provider/provider.dart';
+
+import '../provider/dark_theme_provider.dart';
 
 class FeedView extends StatefulWidget {
   const FeedView(
@@ -34,13 +37,14 @@ class _FeedViewState extends State<FeedView> {
   Widget build(BuildContext context) {
     final size = Utils(context).getScreenSize;
     final color = Utils(context).getColor;
+    final themeState = Provider.of<DarkThemeProvider>(context);
     _quantityTextController.text = "1";
 
     return Padding(
       padding: const EdgeInsets.all(8),
       child: Material(
         borderRadius: BorderRadius.circular(12),
-        color: Colors.grey[100],
+        color: themeState.getDarkTheme ? Colors.black : Colors.grey[100],
         child: InkWell(
           onTap: () {},
           borderRadius: BorderRadius.circular(12),
@@ -92,7 +96,7 @@ class _FeedViewState extends State<FeedView> {
                   children: [
                     Expanded(
                       child: Text(
-                        "\$ ${widget.price}",
+                        "\$${widget.price}",
                         style: GoogleFonts.aBeeZee().copyWith(
                           fontSize: 17,
                           fontWeight: FontWeight.bold,

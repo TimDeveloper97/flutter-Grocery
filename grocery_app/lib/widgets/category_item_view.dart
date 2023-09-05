@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+import '../provider/dark_theme_provider.dart';
 
 class CategoryItemView extends StatelessWidget {
   const CategoryItemView(
@@ -16,6 +19,8 @@ class CategoryItemView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeState = Provider.of<DarkThemeProvider>(context);
+
     return InkWell(
       onTap: onPress,
       child: SizedBox(
@@ -27,6 +32,7 @@ class CategoryItemView extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.fromLTRB(70, 0, 70, 0),
               child: Card(
+                color: themeState.getDarkTheme ? Colors.black : Colors.white,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 60),
                   child: Column(
@@ -36,7 +42,9 @@ class CategoryItemView extends StatelessWidget {
                       Text(
                         title,
                         style: GoogleFonts.montserrat(
-                          color: Theme.of(context).primaryColor,
+                          color: themeState.getDarkTheme
+                              ? Colors.white
+                              : Colors.black,
                           fontWeight: FontWeight.bold,
                           fontSize: 30,
                         ),
@@ -70,10 +78,13 @@ class CategoryItemView extends StatelessWidget {
                   child: Container(
                     alignment: Alignment.centerRight,
                     child: Card(
+                      color: Colors.purple[600],
                       child: Icon(
                         Icons.chevron_right_rounded,
                         size: 40,
-                        color: Theme.of(context).primaryColor,
+                        color: themeState.getDarkTheme
+                            ? Colors.white
+                            : Colors.black,
                       ),
                     ),
                   ),
