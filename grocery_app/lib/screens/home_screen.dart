@@ -1,8 +1,6 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:grocery_app/provider/dark_theme_provider.dart';
-import 'package:provider/provider.dart';
 
 import '../consts/utils.dart';
 import '../widgets/feed_view.dart';
@@ -15,7 +13,7 @@ final List<String> _offerImages = [
   'assets/images/offres/Offer4.jpg',
 ];
 
-final List<Map<String, dynamic>> _menus = const [
+const List<Map<String, dynamic>> _menus = [
   {
     "title": "Nutritional cereals",
     "description": "whole grains",
@@ -51,6 +49,51 @@ final List<Map<String, dynamic>> _menus = const [
     "description": "clean vegetables",
     "price": "45.2",
     "icon": "assets/images/cat/veg.png"
+  },
+];
+
+const List<Map<String, dynamic>> _sales = [
+  {
+    "title": "BBQ Chicken",
+    "description": "500g",
+    "priceNew": "110.4",
+    "priceOld": "130.4",
+    "icon": "assets/images/sales/chicken.png"
+  },
+  {
+    "title": "Fastfood",
+    "description": "200g",
+    "priceNew": "42.4",
+    "priceOld": "99.3",
+    "icon": "assets/images/sales/fastfood.png"
+  },
+  {
+    "title": "Mackerel",
+    "description": "1KG",
+    "priceNew": "71.4",
+    "priceOld": "100.4",
+    "icon": "assets/images/sales/fish.png"
+  },
+  {
+    "title": "Roast pork",
+    "description": "1KG",
+    "priceNew": "15.4",
+    "priceOld": "32.4",
+    "icon": "assets/images/sales/meat.png"
+  },
+  {
+    "title": "Rice",
+    "description": "10KG",
+    "priceNew": "5.4",
+    "priceOld": "7.4",
+    "icon": "assets/images/sales/rice.png"
+  },
+  {
+    "title": "Sausage",
+    "description": "2KG",
+    "priceNew": "10.4",
+    "priceOld": "70.4",
+    "icon": "assets/images/sales/sausage.png"
   },
 ];
 
@@ -130,11 +173,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: size.height * 0.22,
                     alignment: Alignment.centerLeft,
                     child: ListView.builder(
-                      itemCount: 21,
+                      itemCount: _sales.length,
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
-                        return const SaleView();
+                        return SaleView(
+                          title: _sales[index]["title"],
+                          description: _sales[index]["description"],
+                          icon: _sales[index]["icon"],
+                          priceNew: _sales[index]["priceNew"],
+                          priceOld: _sales[index]["priceOld"],
+                        );
                       },
                     ),
                   ),

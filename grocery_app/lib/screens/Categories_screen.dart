@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grocery_app/widgets/category_item_view.dart';
-import 'package:provider/provider.dart';
-
-import '../consts/colors.data.dart';
 import '../consts/utils.dart';
-import '../provider/dark_theme_provider.dart';
 
 final List<Map<String, dynamic>> _categories = [
   {'title': 'Fruit', 'number': 10, 'icon': 'assets/images/cat/fruits.png'},

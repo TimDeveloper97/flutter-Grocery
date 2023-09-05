@@ -6,7 +6,19 @@ import 'package:grocery_app/consts/utils.dart';
 import 'package:grocery_app/widgets/price_widget.dart';
 
 class SaleView extends StatefulWidget {
-  const SaleView({super.key});
+  const SaleView(
+      {super.key,
+      required this.title,
+      required this.description,
+      required this.icon,
+      required this.priceNew,
+      required this.priceOld});
+
+  final String title;
+  final String description;
+  final String icon;
+  final String priceNew;
+  final String priceOld;
 
   @override
   State<SaleView> createState() => _SaleViewState();
@@ -36,14 +48,14 @@ class _SaleViewState extends State<SaleView> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     FancyShimmerImage(
-                      imageUrl: 'assets/images/cat/nuts.png',
+                      imageUrl: widget.icon,
                       height: size.height * 0.1,
                       width: size.width * 0.22,
                     ),
                     Column(
                       children: [
                         Text(
-                          '1KG',
+                          widget.description,
                           style: GoogleFonts.aBeeZee(
                               fontSize: 22,
                               color: color,
@@ -83,10 +95,13 @@ class _SaleViewState extends State<SaleView> {
                     )
                   ],
                 ),
-                PriceWidget(),
+                PriceWidget(
+                  priceNew: widget.priceNew,
+                  priceOld: widget.priceOld,
+                ),
                 const SizedBox(height: 5),
                 Text(
-                  'Product title',
+                  widget.title,
                   style: TextStyle(
                       color: color, fontSize: 16, fontWeight: FontWeight.bold),
                 ),

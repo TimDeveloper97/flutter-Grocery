@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-import '../consts/utils.dart';
-
 class PriceWidget extends StatelessWidget {
-  const PriceWidget({super.key});
+  const PriceWidget(
+      {super.key, required this.priceNew, required this.priceOld});
+
+  final String priceNew;
+  final String priceOld;
 
   @override
   Widget build(BuildContext context) {
-    final color = Utils(context).getColor;
-
     return FittedBox(
       child: Row(
         children: [
           Text(
-            '1.59\$',
+            '$priceNew \$',
             style: TextStyle(
               color: Colors.amber[900],
               fontSize: 22,
@@ -23,8 +23,8 @@ class PriceWidget extends StatelessWidget {
             width: 7,
           ),
           Text(
-            '1.59\$',
-            style: TextStyle(
+            '$priceOld \$',
+            style: const TextStyle(
               fontSize: 15,
               decoration: TextDecoration.lineThrough,
             ),
