@@ -1,21 +1,21 @@
+import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grocery_app/consts/utils.dart';
 import 'package:grocery_app/widgets/price_widget.dart';
 
-class SaleHorizontalView extends StatefulWidget {
-  const SaleHorizontalView({super.key});
+class SaleView extends StatefulWidget {
+  const SaleView({super.key});
 
   @override
-  State<SaleHorizontalView> createState() => _SaleHorizontalViewState();
+  State<SaleView> createState() => _SaleViewState();
 }
 
-class _SaleHorizontalViewState extends State<SaleHorizontalView> {
+class _SaleViewState extends State<SaleView> {
   @override
   Widget build(BuildContext context) {
     final color = Utils(context).getColor;
-    final theme = Utils(context).getTheme;
     Size size = Utils(context).getScreenSize;
 
     return Padding(
@@ -35,11 +35,10 @@ class _SaleHorizontalViewState extends State<SaleHorizontalView> {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.network(
-                      'assets/images/cat/nuts.png',
+                    FancyShimmerImage(
+                      imageUrl: 'assets/images/cat/nuts.png',
                       height: size.height * 0.1,
                       width: size.width * 0.22,
-                      fit: BoxFit.cover,
                     ),
                     Column(
                       children: [

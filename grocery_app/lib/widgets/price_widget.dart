@@ -15,7 +15,7 @@ class PriceWidget extends StatelessWidget {
           Text(
             '1.59\$',
             style: TextStyle(
-              color: color,
+              color: Colors.amber[900],
               fontSize: 22,
             ),
           ),
