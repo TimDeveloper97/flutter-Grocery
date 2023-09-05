@@ -4,12 +4,10 @@ import 'package:grocery_app/widgets/category_item_view.dart';
 import '../consts/utils.dart';
 
 final List<Map<String, dynamic>> _categories = [
-  {'title': 'Fruit', 'number': 10, 'icon': 'assets/images/cat/fruits.png'},
-  {'title': 'Grain', 'number': 30, 'icon': 'assets/images/cat/grains.png'},
-  {'title': 'Nut', 'number': 44, 'icon': 'assets/images/cat/nuts.png'},
-  {'title': 'Spice', 'number': 20, 'icon': 'assets/images/cat/spices.png'},
-  {'title': 'Spinach', 'number': 15, 'icon': 'assets/images/cat/spinach.png'},
-  {'title': 'Veg', 'number': 12, 'icon': 'assets/images/cat/veg.png'},
+  {'title': 'Fruits', 'number': 10, 'icon': 'assets/images/cat/fruits.png'},
+  {'title': 'Grains', 'number': 30, 'icon': 'assets/images/cat/grains.png'},
+  {'title': 'Vegetables', 'number': 12, 'icon': 'assets/images/cat/veg.png'},
+  {'title': 'Meats', 'number': 6, 'icon': 'assets/images/cat/meatpig.png'},
 ];
 
 class CategoriesScreen extends StatelessWidget {
@@ -88,6 +86,9 @@ class CategoriesScreen extends StatelessWidget {
                     ),
                   ],
                 ),
+              ),
+              const SizedBox(
+                height: 40,
               ),
               for (var category in _categories)
                 Padding(

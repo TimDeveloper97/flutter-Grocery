@@ -13,19 +13,19 @@ class PriceWidget extends StatelessWidget {
       child: Row(
         children: [
           Text(
-            '$priceNew \$',
+            '\$$priceNew',
             style: TextStyle(
               color: Colors.amber[900],
               fontSize: 22,
             ),
           ),
           const SizedBox(
-            width: 7,
+            width: 10,
           ),
           Text(
-            '$priceOld \$',
+            '\$$priceOld',
             style: const TextStyle(
-              fontSize: 15,
+              fontSize: 14,
               decoration: TextDecoration.lineThrough,
             ),
           ),

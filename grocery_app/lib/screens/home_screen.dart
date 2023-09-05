@@ -170,7 +170,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const SizedBox(height: 5),
                   Container(
-                    height: size.height * 0.22,
+                    height: size.height * 0.25,
                     alignment: Alignment.centerLeft,
                     child: ListView.builder(
                       itemCount: _sales.length,
@@ -196,7 +196,7 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.only(left: 10, right: 10),
             crossAxisCount: 2,
             shrinkWrap: true,
-            childAspectRatio: size.width / (size.height * 0.55),
+            childAspectRatio: size.width / (size.height * 0.62),
             children: [
               for (var item in _menus)
                 FeedView(

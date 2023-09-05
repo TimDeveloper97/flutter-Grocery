@@ -31,7 +31,7 @@ class _SaleViewState extends State<SaleView> {
     Size size = Utils(context).getScreenSize;
 
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(8),
       child: Material(
         color: Theme.of(context).cardColor.withOpacity(0.9),
         borderRadius: BorderRadius.circular(12),

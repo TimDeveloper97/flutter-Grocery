@@ -52,6 +52,9 @@ class _FeedViewState extends State<FeedView> {
             padding: const EdgeInsets.fromLTRB(10, 3, 10, 3),
             child: Column(
               children: [
+                const SizedBox(
+                  height: 5,
+                ),
                 Container(
                   alignment: Alignment.bottomRight,
                   child: GestureDetector(
@@ -69,6 +72,9 @@ class _FeedViewState extends State<FeedView> {
                   imageUrl: widget.icon,
                   height: size.height * 0.12,
                   width: size.width * 0.3,
+                ),
+                const SizedBox(
+                  height: 10,
                 ),
                 Align(
                   alignment: Alignment.topLeft,
@@ -91,6 +97,9 @@ class _FeedViewState extends State<FeedView> {
                       ),
                     ],
                   ),
+                ),
+                const SizedBox(
+                  height: 10,
                 ),
                 Row(
                   children: [

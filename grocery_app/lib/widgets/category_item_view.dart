@@ -79,12 +79,10 @@ class CategoryItemView extends StatelessWidget {
                     alignment: Alignment.centerRight,
                     child: Card(
                       color: Colors.purple[600],
-                      child: Icon(
+                      child: const Icon(
                         Icons.chevron_right_rounded,
                         size: 40,
-                        color: themeState.getDarkTheme
-                            ? Colors.white
-                            : Colors.black,
+                        color: Colors.white,
                       ),
                     ),
                   ),
