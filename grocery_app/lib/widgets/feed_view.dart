@@ -25,11 +25,9 @@ class FeedView extends StatefulWidget {
 }
 
 class _FeedViewState extends State<FeedView> {
-  final _quantityTextController = TextEditingController();
 
   @override
   void dispose() {
-    _quantityTextController.dispose();
     super.dispose();
   }
 
@@ -38,7 +36,6 @@ class _FeedViewState extends State<FeedView> {
     final size = Utils(context).getScreenSize;
     final color = Utils(context).getColor;
     final themeState = Provider.of<DarkThemeProvider>(context);
-    _quantityTextController.text = "1";
 
     return Padding(
       padding: const EdgeInsets.all(8),

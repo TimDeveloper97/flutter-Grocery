@@ -1,8 +1,10 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:grocery_app/inner_screens/on_sale_screen.dart';
 
 import '../consts/utils.dart';
+import '../services/global_methods.dart';
 import '../widgets/feed_view.dart';
 import '../widgets/sale_view.dart';
 
@@ -156,6 +158,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         InkWell(
                           onTap: () {
                             print('See all');
+                            GlobalMethods.navigateTo(
+                                context: context,
+                                route: OnSaleScreen.routeName);
                           },
                           child: Text(
                             'SEE ALL',
@@ -191,7 +196,35 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          const SizedBox(height: 12),
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 15),
+            height: 50,
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    'OUR PRODUCTS',
+                    style: GoogleFonts.aBeeZee(
+                        color: Colors.amber[900],
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    print('See all');
+                  },
+                  child: Text(
+                    'SEE ALL',
+                    style: GoogleFonts.aBeeZee(
+                      color: Colors.grey,
+                      fontSize: 14,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
           GridView.count(
             padding: const EdgeInsets.only(left: 10, right: 10),
             crossAxisCount: 2,
