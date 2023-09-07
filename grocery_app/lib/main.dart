@@ -5,6 +5,8 @@ import 'package:grocery_app/provider/dark_theme_provider.dart';
 import 'package:grocery_app/screens/bottom_bar.dart';
 import 'package:provider/provider.dart';
 
+import 'inner_screens/feed_screen.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
@@ -64,7 +66,7 @@ class _MyAppState extends State<MyApp> {
           home: const BottomBarSceen(),
           routes: {
             OnSaleScreen.routeName: (context) => const OnSaleScreen(),
-            
+            FeedScreen.routeName: (context) => const FeedScreen(),
           },
         );
       }),

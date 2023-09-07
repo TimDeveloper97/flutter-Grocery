@@ -1,6 +1,7 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:grocery_app/inner_screens/feed_screen.dart';
 import 'package:grocery_app/inner_screens/on_sale_screen.dart';
 
 import '../consts/utils.dart';
@@ -213,6 +214,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 InkWell(
                   onTap: () {
                     print('See all');
+                    GlobalMethods.navigateTo(
+                        context: context, route: FeedScreen.routeName);
                   },
                   child: Text(
                     'SEE ALL',
