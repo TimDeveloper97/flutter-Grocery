@@ -50,16 +50,18 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
-  bool isEmpty = false;
+  bool isEmpty = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Your Food Cart'),
+        title: const Text('Your Food Cart'),
       ),
       body: isEmpty
-          ? const EmptyView(icon: 'assets/images/another/cart.png', text: '')
+          ? const EmptyView(
+              icon: 'assets/images/another/cart.png',
+              text: 'Your Cart is empty,\nplease come back and shopping more!')
           : ListView.builder(
               itemCount: _menus.length,
               shrinkWrap: true,
