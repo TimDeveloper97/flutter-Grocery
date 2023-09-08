@@ -1,7 +1,5 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
-import 'package:grocery_app/provider/numberic_provider.dart';
-
 import '../consts/utils.dart';
 import 'numberic_view.dart';
 
@@ -11,12 +9,16 @@ class CartView extends StatefulWidget {
       required this.icon,
       required this.title,
       required this.description,
-      required this.price});
+      required this.price,
+      required this.number,
+      required this.callback});
 
   final String icon;
   final String title;
   final String description;
+  final int number;
   final String price;
+  final Function(int newNumber) callback;
 
   @override
   State<CartView> createState() => _CartViewState();
@@ -27,7 +29,6 @@ class _CartViewState extends State<CartView> {
   @override
   Widget build(BuildContext context) {
     Size size = Utils(context).getScreenSize;
-    final themeState = Utils(context).getTheme;
 
     return Container(
       width: double.infinity,
@@ -40,7 +41,10 @@ class _CartViewState extends State<CartView> {
               flex: 2,
               child: Padding(
                 padding: const EdgeInsets.all(18.0),
-                child: NumbericView(number: number),
+                child: NumbericView(
+                  number: number,
+                  callback: widget.callback,
+                ),
               ),
             ),
             Expanded(
@@ -101,6 +105,7 @@ class _CartViewState extends State<CartView> {
                   height: 25,
                   width: 25,
                   child: IconButton.filled(
+                    padding: const EdgeInsets.only(bottom: 1),
                     onPressed: () {},
                     icon: const Icon(
                       Icons.close,

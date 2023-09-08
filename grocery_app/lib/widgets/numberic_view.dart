@@ -1,23 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_app/provider/numberic_provider.dart';
 import '../consts/utils.dart';
 
 class NumbericView extends StatefulWidget {
-  NumbericView({super.key, required this.number});
+  NumbericView({super.key, required this.number, required this.callback});
   int number;
-
+  final Function(int newNumber) callback;
   @override
   State<NumbericView> createState() => _NumbericViewState();
 }
 
 class _NumbericViewState extends State<NumbericView> {
-  var numberProvider = NumbericProvider();
 
   @override
   void initState() {
     // TODO: implement initState
     if (widget.number < 0) {
-      numberProvider.setNumber = 0;
       setState(() {
         widget.number = 0;
       });
@@ -43,7 +40,7 @@ class _NumbericViewState extends State<NumbericView> {
               setState(() {
                 widget.number++;
               });
-              numberProvider.setNumber = widget.number;
+              widget.callback(widget.number);
             },
             child: const Text(
               '+',
@@ -74,7 +71,7 @@ class _NumbericViewState extends State<NumbericView> {
                 setState(() {
                   widget.number--;
                 });
-                numberProvider.setNumber = widget.number;
+                widget.callback(widget.number);
               }
             },
             child: const Text(
