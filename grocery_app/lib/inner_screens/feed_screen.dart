@@ -44,9 +44,24 @@ const List<Map<String, dynamic>> _menus = [
   },
 ];
 
-class FeedScreen extends StatelessWidget {
+class FeedScreen extends StatefulWidget {
   static const routeName = "/FeedScreen";
   const FeedScreen({super.key});
+
+  @override
+  State<FeedScreen> createState() => _FeedScreenState();
+}
+
+class _FeedScreenState extends State<FeedScreen> {
+  final TextEditingController _searchTextController = TextEditingController();
+  final FocusNode _searchTextFocusNode = FocusNode();
+
+  @override
+  void dispose() {
+    _searchTextController.dispose();
+    _searchTextFocusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,20 +86,65 @@ class FeedScreen extends StatelessWidget {
           ? const EmptyView(
               icon: 'assets/images/another/box.png',
               text: 'No products for sale yet!,\nStay tuned for ours.')
-          : Container(
-              alignment: Alignment.topCenter,
-              child: GridView.count(
-                padding: const EdgeInsets.only(left: 10, right: 10),
-                crossAxisCount: 2,
-                shrinkWrap: true,
-                childAspectRatio: size.width / (size.height * 0.62),
+          : SingleChildScrollView(
+              child: Column(
                 children: [
-                  for (var item in _menus)
-                    FeedView(
-                        title: item["title"],
-                        description: item["description"],
-                        icon: item["icon"],
-                        price: item["price"])
+                  Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: SizedBox(
+                      height: kBottomNavigationBarHeight,
+                      child: TextField(
+                        focusNode: _searchTextFocusNode,
+                        controller: _searchTextController,
+                        onChanged: (valuee) {
+                          setState(() {});
+                        },
+                        decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: const BorderSide(
+                                color: Colors.greenAccent, width: 1),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: const BorderSide(
+                                color: Colors.greenAccent, width: 1),
+                          ),
+                          hintText: "What's in your mind",
+                          prefixIcon: const Icon(Icons.search),
+                          suffix: IconButton(
+                            onPressed: () {
+                              _searchTextController.clear();
+                              _searchTextFocusNode.unfocus();
+                            },
+                            icon: Icon(
+                              Icons.close,
+                              color: _searchTextFocusNode.hasFocus
+                                  ? Colors.red
+                                  : color,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    alignment: Alignment.topCenter,
+                    child: GridView.count(
+                      padding: const EdgeInsets.only(left: 10, right: 10),
+                      crossAxisCount: 2,
+                      shrinkWrap: true,
+                      childAspectRatio: size.width / (size.height * 0.62),
+                      children: [
+                        for (var item in _menus)
+                          FeedView(
+                              title: item["title"],
+                              description: item["description"],
+                              icon: item["icon"],
+                              price: item["price"])
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
