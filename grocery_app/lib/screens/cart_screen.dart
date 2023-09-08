@@ -1,12 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_app/widgets/cart_view.dart';
 
-class CartScreen extends StatelessWidget {
+import '../widgets/empty_view.dart';
+
+class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
 
   @override
+  State<CartScreen> createState() => _CartScreenState();
+}
+
+class _CartScreenState extends State<CartScreen> {
+  bool isEmpty = true;
+
+  @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Cart Screen'),
+    return Scaffold(
+      body: isEmpty
+          ? const EmptyView(icon: 'assets/images/another/cart.png', text: '')
+          : ListView.builder(
+              shrinkWrap: true,
+              itemCount: 10,
+              itemBuilder: (context, index) {
+                return Card();
+              },
+            ),
     );
   }
 }

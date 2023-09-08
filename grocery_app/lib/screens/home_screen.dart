@@ -150,7 +150,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Expanded(
                           child: Text(
                             'FLASH SALE',
-                            style: GoogleFonts.aBeeZee(
+                            style: TextStyle(
                                 color: Colors.amber[900],
                                 fontSize: 22,
                                 fontWeight: FontWeight.bold),
@@ -163,9 +163,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 context: context,
                                 route: OnSaleScreen.routeName);
                           },
-                          child: Text(
+                          child: const Text(
                             'SEE ALL',
-                            style: GoogleFonts.aBeeZee(
+                            style: TextStyle(
                               color: Colors.grey,
                               fontSize: 14,
                             ),
@@ -205,7 +205,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Expanded(
                   child: Text(
                     'OUR PRODUCTS',
-                    style: GoogleFonts.aBeeZee(
+                    style: TextStyle(
                         color: Colors.amber[900],
                         fontSize: 22,
                         fontWeight: FontWeight.bold),
@@ -217,9 +217,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     GlobalMethods.navigateTo(
                         context: context, route: FeedScreen.routeName);
                   },
-                  child: Text(
+                  child: const Text(
                     'SEE ALL',
-                    style: GoogleFonts.aBeeZee(
+                    style: TextStyle(
                       color: Colors.grey,
                       fontSize: 14,
                     ),

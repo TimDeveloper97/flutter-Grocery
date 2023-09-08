@@ -41,17 +41,17 @@ class CategoryItemView extends StatelessWidget {
                     children: [
                       Text(
                         title,
-                        style: GoogleFonts.montserrat(
+                        style: TextStyle(
                           color: themeState.getDarkTheme
                               ? Colors.white
                               : Colors.black,
                           fontWeight: FontWeight.bold,
-                          fontSize: 30,
+                          fontSize: 25,
                         ),
                       ),
                       Text(
                         '$number items',
-                        style: GoogleFonts.aBeeZee(
+                        style: const TextStyle(
                           color: Colors.grey,
                         ),
                       ),
