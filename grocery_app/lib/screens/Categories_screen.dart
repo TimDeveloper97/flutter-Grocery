@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:grocery_app/widgets/category_item_view.dart';
 import '../consts/utils.dart';
 
@@ -59,11 +58,11 @@ class CategoriesScreen extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Row(
                   children: [
-                    Expanded(
+                    const Expanded(
                       child: Text(
                         'Cate',
                         textAlign: TextAlign.right,
-                        style: GoogleFonts.montserrat(
+                        style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 40,
@@ -73,7 +72,7 @@ class CategoriesScreen extends StatelessWidget {
                     Expanded(
                       child: Text(
                         'gories',
-                        style: GoogleFonts.montserrat(
+                        style: TextStyle(
                           color: Colors.purple[600],
                           fontWeight: FontWeight.bold,
                           fontSize: 40,

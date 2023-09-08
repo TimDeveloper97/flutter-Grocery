@@ -1,10 +1,8 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:grocery_app/consts/utils.dart';
 import 'package:provider/provider.dart';
-
 import '../provider/dark_theme_provider.dart';
 
 class FeedView extends StatefulWidget {
@@ -25,7 +23,6 @@ class FeedView extends StatefulWidget {
 }
 
 class _FeedViewState extends State<FeedView> {
-
   @override
   void dispose() {
     super.dispose();
@@ -80,14 +77,14 @@ class _FeedViewState extends State<FeedView> {
                     children: [
                       Text(
                         widget.title,
-                        style: GoogleFonts.aBeeZee().copyWith(
+                        style: const TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
                         widget.description,
-                        style: GoogleFonts.aBeeZee().copyWith(
+                        style: const TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
                             color: Colors.grey),
@@ -103,7 +100,7 @@ class _FeedViewState extends State<FeedView> {
                     Expanded(
                       child: Text(
                         "\$${widget.price}",
-                        style: GoogleFonts.aBeeZee().copyWith(
+                        style: const TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.bold,
                         ),

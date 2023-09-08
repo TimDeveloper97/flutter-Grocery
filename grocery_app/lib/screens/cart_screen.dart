@@ -11,7 +11,7 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
-  bool isEmpty = true;
+  bool isEmpty = false;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class _CartScreenState extends State<CartScreen> {
               shrinkWrap: true,
               itemCount: 10,
               itemBuilder: (context, index) {
-                return Card();
+                return CartView();
               },
             ),
     );

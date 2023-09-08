@@ -1,7 +1,6 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:grocery_app/consts/utils.dart';
 import 'package:grocery_app/widgets/price_widget.dart';
 
@@ -56,7 +55,7 @@ class _SaleViewState extends State<SaleView> {
                       children: [
                         Text(
                           widget.description,
-                          style: GoogleFonts.aBeeZee(
+                          style: TextStyle(
                               fontSize: 22,
                               color: color,
                               fontWeight: FontWeight.bold),
