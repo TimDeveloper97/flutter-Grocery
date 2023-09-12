@@ -128,32 +128,38 @@ class _ItemDetailViewState extends State<ItemDetailView> {
                     ],
                   ),
                   const SizedBox(
-                    height: 15,
+                    height: 30,
                   ),
                   Expanded(
                     child: Column(
                       children: [
-                        const SizedBox(
-                          width: double.infinity,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
-                              Text(
-                                'Details',
-                                style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold),
-                              ),
-                              const SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                ': Strongbow Cider có độ cồn 4,5% - không dành cho phụ nữ mang thai. Đã uống đồ uống có cồn thì không lái xe bạn nhé!Người dưới 18 tuổi không được uống rượu bia: Strongbow Cider có độ cồn 4,5% - không dành cho phụ nữ mang thai. Đã uống đồ uống có cồn thì không lái xe bạn nhé!Người dưới 18 tuổi không được uống rượu bia',
-                                maxLines: 4,
-                                overflow: TextOverflow.ellipsis,
-                                style:
-                                    TextStyle(fontSize: 15, color: Colors.grey),
-                              )
-                            ],
+                        Expanded(
+                          child: SizedBox(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                const Text(
+                                  'Details',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Expanded(
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.vertical,
+                                    child: Text(
+                                      widget.description,
+                                      softWrap: true,
+                                      style: const TextStyle(
+                                          fontSize: 15, color: Colors.grey),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                         const SizedBox(
@@ -179,6 +185,9 @@ class _ItemDetailViewState extends State<ItemDetailView> {
                         ),
                       ],
                     ),
+                  ),
+                  const SizedBox(
+                    height: 25,
                   ),
                   SizedBox(
                     child: Row(

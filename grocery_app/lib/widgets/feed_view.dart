@@ -13,9 +13,11 @@ class FeedView extends StatefulWidget {
       required this.title,
       required this.description,
       required this.icon,
-      required this.price});
+      required this.price,
+      required this.subTitle});
 
   final String title;
+  final String subTitle;
   final String description;
   final String icon;
   final String price;
@@ -97,7 +99,7 @@ class _FeedViewState extends State<FeedView> {
                         ),
                       ),
                       Text(
-                        widget.description,
+                        widget.subTitle,
                         style: const TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.bold,

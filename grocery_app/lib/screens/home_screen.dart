@@ -18,37 +18,48 @@ final List<String> _offerImages = [
 const List<Map<String, dynamic>> _menus = [
   {
     "title": "Nutritional cereals",
-    "description": "whole grains",
+    "subTitle": "whole grains",
+    "description":
+        "Breakfast cereal is a breakfast food made from processed cereal grains. It is traditionally eaten as part of breakfast, or a snack food, primarily in Western societies.\nAlthough warm cereals like porridge and grits have the longest history, ready-to-eat cold cereals appeared around the late 19th century and are most often mixed with dairy products, traditionally cow's milk. They can also be paired with yogurt or plant-based milks, or eaten plain. Fruit or nuts are sometimes added. Many cereals are produced via extrusion.",
     "price": "110.4",
     "icon": "assets/images/cat/nuts.png"
   },
   {
     "title": "Dried fruit",
-    "description": "clean fruit",
+    "description":
+        "Dried fruit is fruit from which the majority of the original water content has been removed either naturally, through sun drying, or through the use of specialized dryers or dehydrators. Dried fruit has a long tradition of use dating back to the fourth millennium BC in Mesopotamia, and is prized because of its sweet taste, nutritive value, and long shelf life.",
+    "subTitle": "clean fruit",
     "price": "8.4",
     "icon": "assets/images/cat/fruits.png"
   },
   {
     "title": "Grains and cereals",
-    "description": "whole grains",
+    "description":
+        "Grains refer to any type of seed that can be ground into flour or used for food, while cereals are specifically derived from grasses such as wheat, rice, and corn. Both offer a range of nutritional benefits, including fiber, vitamins, minerals, and protein.",
+    "subTitle": "whole grains",
     "price": "19.2",
     "icon": "assets/images/cat/grains.png"
   },
   {
     "title": "Spices",
-    "description": "Spices and condiments",
+    "description":
+        "A spice is a seed, fruit, root, bark, or other plant substance primarily used for flavoring or coloring food. Spices are distinguished from herbs, which are the leaves, flowers, or stems of plants used for flavoring or as a garnish. Spices are sometimes used in medicine, religious rituals, cosmetics, or perfume production. For example, vanilla is commonly used as an ingredient in fragrance manufacturing.",
+    "subTitle": "Spices and condiments",
     "price": "50",
     "icon": "assets/images/cat/spices.png"
   },
   {
     "title": "Spinach",
     "description": "spinach leaves",
+    "subTitle": "spinach leaves",
     "price": "20.8",
     "icon": "assets/images/cat/Spinach.png"
   },
   {
     "title": "Vegetable",
-    "description": "clean vegetables",
+    "description":
+        "Spinach (Spinacia oleracea) is a leafy green flowering plant native to central and Western Asia. It is of the order Caryophyllales, family Amaranthaceae, subfamily Chenopodioideae. Its leaves are a common edible vegetable consumed either fresh, or after storage using preservation techniques by canning, freezing, or dehydration. It may be eaten cooked or raw, and the taste differs considerably; the high oxalate content may be reduced by steaming.",
+    "subTitle": "clean vegetables",
     "price": "45.2",
     "icon": "assets/images/cat/veg.png"
   },
@@ -236,6 +247,7 @@ class _HomeScreenState extends State<HomeScreen> {
               for (var item in _menus)
                 FeedView(
                     title: item["title"],
+                    subTitle: item["subTitle"],
                     description: item["description"],
                     icon: item["icon"],
                     price: item["price"])

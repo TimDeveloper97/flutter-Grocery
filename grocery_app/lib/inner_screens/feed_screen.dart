@@ -139,6 +139,7 @@ class _FeedScreenState extends State<FeedScreen> {
                         for (var item in _menus)
                           FeedView(
                               title: item["title"],
+                              subTitle: item["subTitle"],
                               description: item["description"],
                               icon: item["icon"],
                               price: item["price"])
