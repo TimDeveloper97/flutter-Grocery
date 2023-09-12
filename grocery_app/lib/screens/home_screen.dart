@@ -50,7 +50,8 @@ const List<Map<String, dynamic>> _menus = [
   },
   {
     "title": "Spinach",
-    "description": "spinach leaves",
+    "description":
+        "Spinach (Spinacia oleracea) is a leafy green flowering plant native to central and Western Asia. It is of the order Caryophyllales, family Amaranthaceae, subfamily Chenopodioideae. Its leaves are a common edible vegetable consumed either fresh, or after storage using preservation techniques by canning, freezing, or dehydration. It may be eaten cooked or raw, and the taste differs considerably; the high oxalate content may be reduced by steaming.",
     "subTitle": "spinach leaves",
     "price": "20.8",
     "icon": "assets/images/cat/Spinach.png"
@@ -58,7 +59,7 @@ const List<Map<String, dynamic>> _menus = [
   {
     "title": "Vegetable",
     "description":
-        "Spinach (Spinacia oleracea) is a leafy green flowering plant native to central and Western Asia. It is of the order Caryophyllales, family Amaranthaceae, subfamily Chenopodioideae. Its leaves are a common edible vegetable consumed either fresh, or after storage using preservation techniques by canning, freezing, or dehydration. It may be eaten cooked or raw, and the taste differs considerably; the high oxalate content may be reduced by steaming.",
+        "Vegetables are parts of plants that are consumed by humans or other animals as food. The original meaning is still commonly used and is applied to plants collectively to refer to all edible plant matter, including the flowers, fruits, stems, leaves, roots, and seeds. An alternative definition of the term is applied somewhat arbitrarily, often by culinary and cultural tradition. It may exclude foods derived from some plants that are fruits, flowers, nuts, and cereal grains, but include savoury fruits such as tomatoes and courgettes, flowers such as broccoli, and seeds such as pulses.",
     "subTitle": "clean vegetables",
     "price": "45.2",
     "icon": "assets/images/cat/veg.png"
