@@ -1,4 +1,5 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../consts/utils.dart';
 import 'numberic_view.dart';
@@ -11,21 +12,50 @@ class CartView extends StatefulWidget {
       required this.description,
       required this.price,
       required this.number,
-      required this.callback});
+      required this.updateNumberic,
+      required this.removeItem,
+      required this.id});
 
   final String icon;
+  final String id;
   final String title;
   final String description;
   final int number;
   final String price;
-  final Function(int newNumber) callback;
-
+  final Function(int newNumber) updateNumberic;
+  final Function(String id) removeItem;
   @override
   State<CartView> createState() => _CartViewState();
 }
 
 class _CartViewState extends State<CartView> {
-  int number = 1;
+  void closePopup(String id, String name) {
+    showCupertinoModalPopup(
+      context: context,
+      builder: (context) => CupertinoAlertDialog(
+        title: const Text('Alert'),
+        content: Text('Are you sure want to remove \'$name\' from cart?'),
+        actions: [
+          CupertinoDialogAction(
+            isDestructiveAction: true,
+            onPressed: () {
+              Navigator.pop(context);
+              widget.removeItem(id);
+            },
+            child: const Text('Yes'),
+          ),
+          CupertinoDialogAction(
+            isDefaultAction: true,
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: const Text('No'),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = Utils(context).getScreenSize;
@@ -42,8 +72,8 @@ class _CartViewState extends State<CartView> {
               child: Padding(
                 padding: const EdgeInsets.all(18.0),
                 child: NumbericView(
-                  number: number,
-                  callback: widget.callback,
+                  number: widget.number,
+                  callback: widget.updateNumberic,
                 ),
               ),
             ),
@@ -106,7 +136,7 @@ class _CartViewState extends State<CartView> {
                   width: 25,
                   child: IconButton.filled(
                     padding: const EdgeInsets.only(bottom: 1),
-                    onPressed: () {},
+                    onPressed: () => closePopup(widget.id, widget.title),
                     icon: const Icon(
                       Icons.close,
                       color: Colors.white,
