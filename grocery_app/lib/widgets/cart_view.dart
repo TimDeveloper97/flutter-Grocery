@@ -74,6 +74,7 @@ class _CartViewState extends State<CartView> {
                 child: NumbericView(
                   number: widget.number,
                   callback: widget.updateNumberic,
+                  axis: Axis.vertical,
                 ),
               ),
             ),

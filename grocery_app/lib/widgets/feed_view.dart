@@ -2,8 +2,10 @@ import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:grocery_app/consts/utils.dart';
+import 'package:grocery_app/widgets/item_detail_view.dart';
 import 'package:provider/provider.dart';
 import '../provider/dark_theme_provider.dart';
+import '../services/global_methods.dart';
 
 class FeedView extends StatefulWidget {
   const FeedView(
@@ -40,7 +42,19 @@ class _FeedViewState extends State<FeedView> {
         borderRadius: BorderRadius.circular(12),
         color: themeState.getDarkTheme ? Colors.black : Colors.grey[100],
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ItemDetailView(
+                    title: widget.title,
+                    description: widget.description,
+                    number: 1,
+                    icon: widget.icon,
+                    price: double.parse(widget.price),
+                  ),
+                ));
+          },
           borderRadius: BorderRadius.circular(12),
           child: Padding(
             padding: const EdgeInsets.fromLTRB(10, 3, 10, 3),
