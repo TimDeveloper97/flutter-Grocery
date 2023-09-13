@@ -4,6 +4,8 @@ import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:grocery_app/consts/utils.dart';
 import 'package:grocery_app/widgets/price_widget.dart';
 
+import '../inner_screens/item_detail_screen.dart';
+
 class SaleView extends StatefulWidget {
   const SaleView(
       {super.key,
@@ -36,7 +38,20 @@ class _SaleViewState extends State<SaleView> {
         borderRadius: BorderRadius.circular(12),
         child: InkWell(
           borderRadius: BorderRadius.circular(12),
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ItemDetailScreen(
+                    title: widget.title,
+                    description: widget.description,
+                    number: 1,
+                    icon: widget.icon,
+                    priceNew: double.parse(widget.priceNew),
+                    priceOld: double.parse(widget.priceOld),
+                  ),
+                ));
+          },
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(

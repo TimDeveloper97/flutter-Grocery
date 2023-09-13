@@ -1,95 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import '../consts/dummy_data.dart';
 import '../consts/utils.dart';
 import '../widgets/empty_view.dart';
 import '../widgets/sale_view.dart';
-
-const List<Map<String, dynamic>> _sales = [
-  {
-    "title": "BBQ Chicken",
-    "description": "500g",
-    "priceNew": "110.4",
-    "priceOld": "130.4",
-    "icon": "assets/images/sales/chicken.png"
-  },
-  {
-    "title": "Fastfood",
-    "description": "200g",
-    "priceNew": "42.4",
-    "priceOld": "99.3",
-    "icon": "assets/images/sales/fastfood.png"
-  },
-  {
-    "title": "Mackerel",
-    "description": "1KG",
-    "priceNew": "71.4",
-    "priceOld": "100.4",
-    "icon": "assets/images/sales/fish.png"
-  },
-  {
-    "title": "Roast pork",
-    "description": "1KG",
-    "priceNew": "15.4",
-    "priceOld": "32.4",
-    "icon": "assets/images/sales/meat.png"
-  },
-  {
-    "title": "Rice",
-    "description": "10KG",
-    "priceNew": "5.4",
-    "priceOld": "7.4",
-    "icon": "assets/images/sales/rice.png"
-  },
-  {
-    "title": "Sausage",
-    "description": "2KG",
-    "priceNew": "10.4",
-    "priceOld": "70.4",
-    "icon": "assets/images/sales/sausage.png"
-  },
-  {
-    "title": "BBQ Chicken",
-    "description": "500g",
-    "priceNew": "110.4",
-    "priceOld": "130.4",
-    "icon": "assets/images/sales/chicken.png"
-  },
-  {
-    "title": "Fastfood",
-    "description": "200g",
-    "priceNew": "42.4",
-    "priceOld": "99.3",
-    "icon": "assets/images/sales/fastfood.png"
-  },
-  {
-    "title": "Mackerel",
-    "description": "1KG",
-    "priceNew": "71.4",
-    "priceOld": "100.4",
-    "icon": "assets/images/sales/fish.png"
-  },
-  {
-    "title": "Roast pork",
-    "description": "1KG",
-    "priceNew": "15.4",
-    "priceOld": "32.4",
-    "icon": "assets/images/sales/meat.png"
-  },
-  {
-    "title": "Rice",
-    "description": "10KG",
-    "priceNew": "5.4",
-    "priceOld": "7.4",
-    "icon": "assets/images/sales/rice.png"
-  },
-  {
-    "title": "Sausage",
-    "description": "2KG",
-    "priceNew": "10.4",
-    "priceOld": "70.4",
-    "icon": "assets/images/sales/sausage.png"
-  },
-];
 
 class OnSaleScreen extends StatelessWidget {
   static const routeName = "/OnSaleScreen";
@@ -99,6 +13,8 @@ class OnSaleScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size size = Utils(context).getScreenSize;
     final Color color = Utils(context).getColor;
+    var menus = DummyData().getMenus;
+    var sales = DummyData().getSales;
     bool isEmpty = true;
 
     return Scaffold(
@@ -127,7 +43,7 @@ class OnSaleScreen extends StatelessWidget {
                 shrinkWrap: true,
                 childAspectRatio: size.width / (size.height * 0.42),
                 children: [
-                  for (var item in _sales)
+                  for (var item in sales)
                     SaleView(
                       title: item["title"],
                       description: item["description"],

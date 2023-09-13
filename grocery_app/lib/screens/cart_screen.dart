@@ -1,58 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_app/widgets/cart_view.dart';
+import '../consts/dummy_data.dart';
 import '../widgets/empty_view.dart';
 import '../widgets/tile_between.dart';
 
-List<Map<String, dynamic>> _menus = [
-  {
-    "id": "1",
-    "title": "Nutritional cereals",
-    "description": "whole grains",
-    "price": "110.4",
-    "icon": "assets/images/cat/nuts.png",
-    "number": "1",
-  },
-  {
-    "id": "2",
-    "title": "Dried fruit",
-    "description": "clean fruit",
-    "price": "8.4",
-    "icon": "assets/images/cat/fruits.png",
-    "number": "1",
-  },
-  {
-    "id": "3",
-    "title": "Grains and cereals",
-    "description": "whole grains",
-    "price": "19.2",
-    "icon": "assets/images/cat/grains.png",
-    "number": "1",
-  },
-  {
-    "id": "4",
-    "title": "Spices",
-    "description": "Spices and condiments",
-    "price": "50",
-    "icon": "assets/images/cat/spices.png",
-    "number": "1",
-  },
-  {
-    "id": "5",
-    "title": "Spinach",
-    "description": "spinach leaves",
-    "price": "20.8",
-    "icon": "assets/images/cat/Spinach.png",
-    "number": "1",
-  },
-  {
-    "id": "6",
-    "title": "Vegetable",
-    "description": "clean vegetables",
-    "price": "45.2",
-    "icon": "assets/images/cat/veg.png",
-    "number": "1",
-  },
-];
 double _percentTax = 1;
 double _delivery = 4.99;
 
@@ -64,13 +15,15 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
+  var menus = DummyData().getMenus;
+  var sales = DummyData().getSales;
   bool isEmpty = false;
   double cartTotal = 0;
   double tax = 0;
 
   void updatePrice() {
     var total = 0.0;
-    for (var element in _menus) {
+    for (var element in menus) {
       var price = double.parse(element["price"]);
       var number = double.parse(element["number"]);
 
@@ -103,25 +56,24 @@ class _CartScreenState extends State<CartScreen> {
                 Expanded(
                   flex: 4,
                   child: ListView.builder(
-                    itemCount: _menus.length,
+                    itemCount: menus.length,
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
                     itemBuilder: (context, index) {
                       return CartView(
-                        id: _menus[index]["id"],
-                        title: _menus[index]["title"],
-                        description: _menus[index]["description"],
-                        icon: _menus[index]["icon"],
-                        number: int.parse(_menus[index]["number"]),
-                        price: _menus[index]["price"],
+                        id: menus[index]["id"],
+                        title: menus[index]["title"],
+                        description: menus[index]["subTitle"],
+                        icon: menus[index]["icon"],
+                        number: int.parse(menus[index]["number"]),
+                        price: menus[index]["price"],
                         updateNumberic: (newNumber) {
-                          _menus[index]["number"] = newNumber.toString();
+                          menus[index]["number"] = newNumber.toString();
                           updatePrice();
                         },
                         removeItem: (String id) {
                           setState(() {
-                            _menus
-                                .removeWhere((element) => element['id'] == id);
+                            menus.removeWhere((element) => element['id'] == id);
                           });
                         },
                       );

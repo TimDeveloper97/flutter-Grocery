@@ -1,48 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 
+import '../consts/dummy_data.dart';
 import '../consts/utils.dart';
 import '../widgets/empty_view.dart';
 import '../widgets/feed_view.dart';
-
-const List<Map<String, dynamic>> _menus = [
-  {
-    "title": "Nutritional cereals",
-    "description": "whole grains",
-    "price": "110.4",
-    "icon": "assets/images/cat/nuts.png"
-  },
-  {
-    "title": "Dried fruit",
-    "description": "clean fruit",
-    "price": "8.4",
-    "icon": "assets/images/cat/fruits.png"
-  },
-  {
-    "title": "Grains and cereals",
-    "description": "whole grains",
-    "price": "19.2",
-    "icon": "assets/images/cat/grains.png"
-  },
-  {
-    "title": "Spices",
-    "description": "Spices and condiments",
-    "price": "50",
-    "icon": "assets/images/cat/spices.png"
-  },
-  {
-    "title": "Spinach",
-    "description": "spinach leaves",
-    "price": "20.8",
-    "icon": "assets/images/cat/Spinach.png"
-  },
-  {
-    "title": "Vegetable",
-    "description": "clean vegetables",
-    "price": "45.2",
-    "icon": "assets/images/cat/veg.png"
-  },
-];
 
 class FeedScreen extends StatefulWidget {
   static const routeName = "/FeedScreen";
@@ -67,6 +29,8 @@ class _FeedScreenState extends State<FeedScreen> {
   Widget build(BuildContext context) {
     final Size size = Utils(context).getScreenSize;
     final Color color = Utils(context).getColor;
+    var menus = DummyData().getMenus;
+    var sales = DummyData().getSales;
     bool isEmpty = false;
 
     return Scaffold(
@@ -136,7 +100,7 @@ class _FeedScreenState extends State<FeedScreen> {
                       shrinkWrap: true,
                       childAspectRatio: size.width / (size.height * 0.62),
                       children: [
-                        for (var item in _menus)
+                        for (var item in menus)
                           FeedView(
                               title: item["title"],
                               subTitle: item["subTitle"],

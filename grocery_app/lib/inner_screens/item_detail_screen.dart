@@ -6,33 +6,35 @@ import 'package:grocery_app/widgets/text_icon_card_view.dart';
 
 import '../consts/utils.dart';
 
-class ItemDetailView extends StatefulWidget {
+class ItemDetailScreen extends StatefulWidget {
   static const routeName = "/ItemDetailView";
-  ItemDetailView(
+  ItemDetailScreen(
       {super.key,
       required this.title,
       required this.description,
       required this.number,
       required this.icon,
-      required this.price});
+      required this.priceNew,
+      this.priceOld = 0.0});
 
   final String title;
   final String description;
   int number;
   final String icon;
-  final double price;
+  final double priceNew;
+  double priceOld;
 
   @override
-  State<ItemDetailView> createState() => _ItemDetailViewState();
+  State<ItemDetailScreen> createState() => _ItemDetailScreenState();
 }
 
-class _ItemDetailViewState extends State<ItemDetailView> {
+class _ItemDetailScreenState extends State<ItemDetailScreen> {
   double totalPrice = 0;
 
   void updateTotal(int newNumber) {
     setState(() {
       widget.number = newNumber;
-      totalPrice = newNumber * widget.price;
+      totalPrice = newNumber * widget.priceNew;
     });
   }
 
@@ -210,11 +212,30 @@ class _ItemDetailViewState extends State<ItemDetailView> {
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(7)))),
                             onPressed: () {},
-                            child: Text(
-                              'Order for \$${totalPrice.toStringAsFixed(2)}',
-                              style: const TextStyle(
-                                  color: Colors.white, fontSize: 20),
-                            ),
+                            child: widget.priceOld == 0.0
+                                ? Text(
+                                    'Order for \$${totalPrice.toStringAsFixed(2)}',
+                                    style: const TextStyle(
+                                        color: Colors.white, fontSize: 20),
+                                  )
+                                : Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'Order for \$${totalPrice.toStringAsFixed(2)} ',
+                                        style: const TextStyle(
+                                            color: Colors.white, fontSize: 20),
+                                      ),
+                                      Text(
+                                        '(\$${widget.priceOld.toStringAsFixed(2)})',
+                                        style: const TextStyle(
+                                            color: Colors.grey,
+                                            fontSize: 11,
+                                            decoration:
+                                                TextDecoration.lineThrough),
+                                      )
+                                    ],
+                                  ),
                           ),
                         )
                       ],

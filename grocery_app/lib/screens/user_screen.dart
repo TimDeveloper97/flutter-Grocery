@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:grocery_app/screens/profile_screen.dart';
+import 'package:grocery_app/screens/wishlist_screen.dart';
 import 'package:grocery_app/widgets/action_switch_view.dart';
 import 'package:grocery_app/widgets/action_view.dart';
 import 'package:provider/provider.dart';
@@ -33,6 +34,14 @@ class UserScreen extends StatelessWidget {
         );
       },
     );
+  }
+
+  void wishlist(BuildContext context) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => WishlistScreen(),
+        ));
   }
 
   @override
@@ -101,7 +110,9 @@ class UserScreen extends StatelessWidget {
                 icon: IconlyLight.heart,
                 title: 'Wishlist',
                 description: 'Your favorites list',
-                onPress: () {},
+                onPress: () {
+                  wishlist(context);
+                },
                 color: Colors.red),
           ]),
           const SizedBox(
