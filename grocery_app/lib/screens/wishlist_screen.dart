@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:grocery_app/widgets/wishlist_view.dart';
 
 import '../consts/dummy_data.dart';
 import '../consts/utils.dart';
 import '../widgets/empty_view.dart';
 import '../widgets/feed_view.dart';
+import '../widgets/sale_view.dart';
 
 class WishlistScreen extends StatefulWidget {
   const WishlistScreen({super.key});
@@ -52,6 +54,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
               icon: 'assets/images/another/wishlist.png',
               text: 'Favorites list is empty.')
           : SingleChildScrollView(
+            
               child: Column(
                 children: [
                   Container(
@@ -60,15 +63,16 @@ class _WishlistScreenState extends State<WishlistScreen> {
                       padding: const EdgeInsets.only(left: 10, right: 10),
                       crossAxisCount: 2,
                       shrinkWrap: true,
-                      childAspectRatio: size.width / (size.height * 0.62),
+                      childAspectRatio: size.width / (size.height * 0.42),
                       children: [
-                        for (var item in menus)
-                          FeedView(
-                              title: item["title"],
-                              subTitle: item["subTitle"],
-                              description: item["description"],
-                              icon: item["icon"],
-                              price: item["price"])
+                        for (var item in sales)
+                          WishlistView(
+                            title: item["title"],
+                            description: item["description"],
+                            icon: item["icon"],
+                            priceNew: item["priceNew"],
+                            priceOld: item["priceOld"],
+                          )
                       ],
                     ),
                   ),

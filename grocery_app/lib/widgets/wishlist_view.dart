@@ -6,8 +6,8 @@ import 'package:grocery_app/widgets/price_widget.dart';
 
 import '../inner_screens/item_detail_screen.dart';
 
-class SaleView extends StatefulWidget {
-  const SaleView(
+class WishlistView extends StatefulWidget {
+  const WishlistView(
       {super.key,
       required this.title,
       required this.description,
@@ -22,19 +22,20 @@ class SaleView extends StatefulWidget {
   final String priceOld;
 
   @override
-  State<SaleView> createState() => _SaleViewState();
+  State<WishlistView> createState() => _WishlistViewState();
 }
 
-class _SaleViewState extends State<SaleView> {
+class _WishlistViewState extends State<WishlistView> {
   @override
   Widget build(BuildContext context) {
     final color = Utils(context).getColor;
+    final bool isDark = Utils(context).getTheme;
     Size size = Utils(context).getScreenSize;
 
     return Padding(
       padding: const EdgeInsets.all(8),
       child: Material(
-        color: Theme.of(context).cardColor.withOpacity(0.9),
+        color: isDark ? Colors.black : Colors.grey[100],
         borderRadius: BorderRadius.circular(12),
         child: InkWell(
           borderRadius: BorderRadius.circular(12),
@@ -71,16 +72,6 @@ class _SaleViewState extends State<SaleView> {
                     ),
                     Column(
                       children: [
-                        Text(
-                          widget.description,
-                          style: TextStyle(
-                              fontSize: 22,
-                              color: color,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        const SizedBox(
-                          height: 6,
-                        ),
                         Row(
                           children: [
                             GestureDetector(
@@ -100,23 +91,27 @@ class _SaleViewState extends State<SaleView> {
                               onTap: () {
                                 print('heart');
                               },
-                              child: Icon(
-                                IconlyLight.heart,
+                              child: const Icon(
+                                IconlyBold.heart,
                                 size: 22,
-                                color: color,
+                                color: Colors.red,
                               ),
-                            )
+                            ),
                           ],
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          '\$${widget.priceNew}',
+                          style: const TextStyle(
+                            fontSize: 22,
+                          ),
                         ),
                       ],
                     )
                   ],
                 ),
-                PriceWidget(
-                  priceNew: widget.priceNew,
-                  priceOld: widget.priceOld,
-                ),
-                const SizedBox(height: 5),
                 Text(
                   widget.title,
                   style: TextStyle(
