@@ -7,6 +7,7 @@ import '../consts/utils.dart';
 import '../widgets/empty_view.dart';
 import '../widgets/feed_view.dart';
 import '../widgets/sale_view.dart';
+import '../widgets/test_view.dart';
 
 class WishlistScreen extends StatefulWidget {
   const WishlistScreen({super.key});
@@ -54,7 +55,6 @@ class _WishlistScreenState extends State<WishlistScreen> {
               icon: 'assets/images/another/wishlist.png',
               text: 'Favorites list is empty.')
           : SingleChildScrollView(
-            
               child: Column(
                 children: [
                   Container(
@@ -66,13 +66,14 @@ class _WishlistScreenState extends State<WishlistScreen> {
                       childAspectRatio: size.width / (size.height * 0.42),
                       children: [
                         for (var item in sales)
-                          WishlistView(
-                            title: item["title"],
-                            description: item["description"],
-                            icon: item["icon"],
-                            priceNew: item["priceNew"],
-                            priceOld: item["priceOld"],
-                          )
+                          // WishlistView(
+                          //   title: item["title"],
+                          //   description: item["description"],
+                          //   icon: item["icon"],
+                          //   priceNew: item["priceNew"],
+                          //   priceOld: item["priceOld"],
+                          // )
+                          TestView()
                       ],
                     ),
                   ),
