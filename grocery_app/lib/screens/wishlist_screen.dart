@@ -66,14 +66,13 @@ class _WishlistScreenState extends State<WishlistScreen> {
                       childAspectRatio: size.width / (size.height * 0.42),
                       children: [
                         for (var item in sales)
-                          // WishlistView(
-                          //   title: item["title"],
-                          //   description: item["description"],
-                          //   icon: item["icon"],
-                          //   priceNew: item["priceNew"],
-                          //   priceOld: item["priceOld"],
-                          // )
-                          TestView()
+                          WishlistView(
+                            title: item["title"],
+                            description: item["description"],
+                            icon: item["icon"],
+                            priceNew: item["priceNew"],
+                            priceOld: item["priceOld"],
+                          )
                       ],
                     ),
                   ),
